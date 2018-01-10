@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--@author jakubvacek-->
+<div ui-view=""></div>
+<div class="uk-panel-box uk-text-center uk-width-9-10" id="containerWithBorder">
+    <div class="uk-flex uk-flex-row uk-flex-space-between" id="containerTitleBar" >
+        <span id = "containerTitle">
+            Reservations of user: {{$ctrl.selectedUser.username}}
+        </span>
+        <span ng-if ="!$ctrl.reservations || $ctrl.reservations.length == 0">
+            No content
+        </span>
+        <span ng-if ="$ctrl.reservations && $ctrl.reservations.length != 0">
+            Number of elements: {{$ctrl.reservations.length}}
+        </span>
+        <span class="uk-width-1-10">
+            <!--create list button-->
+            <a id="iconBlue" ui-sref="createReservation" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Create reservation</spam>" class="uk-icon-justify uk-icon-small uk-icon-plus" ></a>
+            <!--hide button-->
+            <a id="iconRed" ui-sref="home({user: $ctrl.logedUser})" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Hide this table</spam>" class="uk-icon-justify uk-icon-small uk-icon-remove" ></a>
+        </span>
+    </div>
+    <table ng-if ="$ctrl.reservations && $ctrl.reservations.length != 0" class="uk-table"  >
+        <tr id="tableHead">
+            <th class="uk-text-center">
+                Date
+            </th>
+            <th class="uk-text-center">
+                Time
+            </th>
+            <th class="uk-text-center">
+                Created
+            </th>
+            <th class="uk-text-center">
+                Remove
+            </th>
+        </tr>
+        <tr ng-repeat=" r in $ctrl.reservations"id="tableBody">
+            <td class="uk-width-1-5">
+                {{r.date| date:'HH:mm, d.M.yyyy'}}
+            </td>
+            <td> {{r.duration| date:'HH:mm'}}</td>                      
+            <td> {{r.createdOn| date:'HH:mm, d.M.yyyy'}}</td>                      
+            <td>
+                <a id="iconRed" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Delete reservation</spam>"  ng-click="$ctrl.deleteReservationById(t.id)"class="uk-icon-justify uk-icon-small uk-icon-remove" ></a>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--@author jakubvacek-->
+<div id="containerDefaultFont" class="uk-width-3-10">
+    <div class="uk-text-center">
+        <form class="uk-form">
+            <fieldset>
+                <legend> Create new reservation</legend>
+                <div class="uk-form-row">
+                    <div class="uk-form-icon">
+                        <i class="uk-icon-calendar"></i>
+                        <input type="text" data-uk-datepicker="" id="datePickerCreateReservation"  placeholder="date"/>
+                    </div>
+                </div>
+                <div class="uk-form-row">
+                    <div class="uk-form-icon">
+                        <i class="uk-icon-clock-o"></i>
+                        <input type="text" data-uk-timepicker="{start:'1'}"  id="timePickerCreateReservation" placeholder="Time of reservation">
+                    </div>                </div>
+                <div id="strikeout"></div>
+                <div class="uk-flex uk-flex-row uk-flex-space-around" id="formButtons" >
+                    <a id="iconRed" ui-sref="todos" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Cancel</spam>" class="uk-icon-justify uk-icon-medium uk-icon-remove" ></a>
+                    <a id="iconGreen" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Create todo</spam>"  ng-click="$ctrl.createReservation()"class="uk-icon-justify uk-icon-medium uk-icon-check" ></a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
