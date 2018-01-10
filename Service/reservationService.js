@@ -9,15 +9,15 @@ App.service('$reservationService', ['$http', '$notifyService', function ($http, 
                         }, function (response) {
                             $notifyService.notify('Unable to get reservations of ' + user.username, "danger");
                         });
-            },deleteReservation: function (project) {
-                return $http.delete('http://localhost:8080/reservations', {params: {reservationId: reservation.id}})
+            },deleteReservation: function (id) {
+                alert(id)
+                return $http.delete('http://localhost:8080/reservations', {params: {reservationId: id}})
                         .then(function (response) {
                             $notifyService.notify('Reservation deleted', "success");
                         }, function (response) {
                             $notifyService.notify('Unable to delete reservation', "danger");
                         });
             },createReservation: function (user, data) {
-                alert("service")
                 return $http.post('http://localhost:8080/reservations', data, {params: {userId: user.id}})
                         .then(function (response) {
                             $notifyService.notify('Reservation created', "success");

@@ -36,12 +36,12 @@
         </tr>
         <tr ng-repeat=" r in $ctrl.reservations"id="tableBody">
             <td class="uk-width-1-5">
-                {{r.date| date:'HH:mm, d.M.yyyy'}}
+                {{r.date| date:'MMM d, y h:mm a'}}
             </td>
-            <td> {{r.duration| date:'HH:mm'}}</td>                      
-            <td> {{r.createdOn| date:'HH:mm, d.M.yyyy'}}</td>                      
+            <td> {{r.duration| date:'HH:mm a'}}</td>                      
+            <td> {{r.createdOn| date:'MMM d, y h:mm a'}}</td>                      
             <td>
-                <a id="iconRed" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Delete reservation</spam>"  ng-click="$ctrl.deleteReservationById(t.id)"class="uk-icon-justify uk-icon-small uk-icon-remove" ></a>
+                <a id="iconRed" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Delete reservation</spam>"  ng-click="$ctrl.deleteReservation(r)"class="uk-icon-justify uk-icon-small uk-icon-remove" ></a>
             </td>
         </tr>
     </table>

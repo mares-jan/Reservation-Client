@@ -46,12 +46,12 @@ angular.module('App').component('reservations', {
             });
         }
         //Deletes project
-        this.deleteReservation = function (l) {
-            $reservationService.deleteReservation(l).then(function (response) {
+        this.deleteReservation = function (reservation) {
+            $reservationService.deleteReservation(reservation.id).then(function (response) {
                 //deleting on client
                 for (var i = 0; i < self.reservations.length; i++)
                 {
-                    if (self.reservations[i].id === l.id)
+                    if (self.reservations[i].id === reservation.id)
                     {
                         self.reservations.splice(i, 1);
                     }
@@ -62,10 +62,8 @@ angular.module('App').component('reservations', {
 
         //Creates new project, clears the form 
         this.createReservation = function () {
-            alert("create reservation")
             var duration = $timeService.setDateTime(new Date(0), ($('#timePickerCreateReservation').val())).toISOString()
             var data = {"id": null, "userID": self.selectedUser.id, "date":  new Date($('#datePickerCreateReservation').val()).toISOString(), "duration": duration, "createdOn": null};
-            alert(data.userID + data.date, data.duration)
             $reservationService.createReservation(self.selectedUser, data).then(function (response) {
                 $state.go('reservations', {}, {reload: true});
             });
