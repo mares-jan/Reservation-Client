@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--@author jakubvacek-->
+<div class="uk-panel-box uk-text-center uk-width-9-10" id="header">
+    <div class="uk-flex uk-flex-row uk-flex-space-between">
+  
+        <figure class="uk-thumbnail-mini">
+        <img ng-if ="!logedUser" src="Template/Logo.png"/>
+        <img ng-if ="logedUser" src="Template/Logo.png"/> 
+        </figure>
+
+
+        <span ng-if ="logedUser" id = "tableBarHead">                
+            <span  ng-if="$state.current.name !== 'home'">
+                <a ui-sref="home({user:logedUser})" id="iconBlue" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Home</spam>" class="uk-icon-justify uk-icon-small uk-icon-home"></a>
+            </span>
+            <a ng-if ="logedUser" id="iconBlueHeader" data-uk-tooltip="{pos:'bottom-right'}" title="<spam id='tooltip'>Sing out</spam>" ng-click="logout(logedUser)" class="uk-icon-justify uk-icon-small uk-icon-sign-out"></a>
+            {{logedUser.username}}
+        </span>           
+    </div>
+    <div id="strikeout"></div>

@@ -1,0 +1,31 @@
+{
+  "name": "GymReservation",
+  "authors": [
+    "Jakub Vacek <vacjak@seznam.cz>"
+  ],
+  "description": "Simple client for school project",
+  "main": "index.html",
+  "keywords": [
+    "Angular",
+    "UI",
+    "router",
+    "UI",
+    "kit"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "^1.6.8",
+    "angular-ui-router": "0.4.2",
+    "angular": "^1.6.8",
+    "uikit": "^2.27.4"
+  }
+}
